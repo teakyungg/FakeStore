@@ -3,6 +3,7 @@
 .header {
   position: fixed;
   width: 100%;
+  height: variable.$header-height;
 
   .inner {
     max-width: 1500px;
