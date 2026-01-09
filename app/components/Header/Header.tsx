@@ -14,9 +14,16 @@ export function Header() {
         </ul>
 
         <ul>
-          {utilityMenu.map((data) => (
-            <li key={data}>{data}</li>
-          ))}
+          {utilityMenu.map((data) => {
+            if (data === "로그인/회원가입") {
+              return (
+                <li className={styles.login} key={data}>
+                  {data}
+                </li>
+              );
+            }
+            return <li key={data}>{data}</li>;
+          })}
         </ul>
       </nav>
     </header>

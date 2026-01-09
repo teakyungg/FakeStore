@@ -21,6 +21,22 @@
       list-style: none;
       display: flex;
       gap: 15px;
+
+      li {
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      .login {
+        border: 1px solid map-get(variable.$color, lightWhite);
+        border-radius: 8px;
+      }
     }
+  }
+}
+
+@media (max-width: nth(variable.$breakpoints, 2)) {
+  .header {
+    display: none;
   }
 }
