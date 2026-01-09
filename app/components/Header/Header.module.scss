@@ -1,0 +1,26 @@
+@use "../../variable";
+
+.header {
+  position: fixed;
+  width: 100%;
+
+  .inner {
+    max-width: 1500px;
+    padding: 10px;
+
+    background-color: map-get(variable.$color, black);
+    color: map-get(variable.$color, lightWhite);
+    font-weight: map-get(variable.$font-weight, regular);
+    font-size: 0.9em;
+
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+  }
+}

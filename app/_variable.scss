@@ -1,4 +1,18 @@
 $breakpoints: 600px 1024px; // 모바일, 테블릿 브레이크 포인트
 
 // 모바일, 테블릿, PC 기준
-$font-size: 14px 16px 18px;
+$font-size: 14px 16px 18px; // 폰트 사이즈
+
+// 색깔
+$color: (
+  black: rgb(0, 0, 0),
+  white: rgb(255, 255, 255),
+  lightWhite: rgb(235, 235, 235),
+);
+
+// 폰트 굵기
+$font-weight: (
+  regular: 400,
+  medium: 500,
+  bold: 700,
+);

@@ -1,5 +1,10 @@
 @use "./variable";
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 // 반응형 전역 설정
 @for $screen-size from 1 through 3 {
   // 모바일
