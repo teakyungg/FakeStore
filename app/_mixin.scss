@@ -1,0 +1,12 @@
+@use "./variable";
+
+// inner 공용 스타일
+@mixin inner {
+  .inner {
+    max-width: variable.$inner-max-witdh;
+    margin: 0 auto;
+    padding: 10px;
+
+    @content;
+  }
+}
