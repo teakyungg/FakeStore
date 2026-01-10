@@ -7,13 +7,13 @@ export function Header() {
   return (
     <header className={styles.header}>
       <nav className={styles.inner}>
-        <ul>
+        <ul className={styles.mianMenuBox}>
           {mainMenu.map((data) => (
             <li key={data}>{data}</li>
           ))}
         </ul>
 
-        <ul>
+        <ul className={styles.utilityMenuBox}>
           {utilityMenu.map((data) => {
             if (data === "로그인/회원가입") {
               return (

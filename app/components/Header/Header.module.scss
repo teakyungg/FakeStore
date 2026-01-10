@@ -10,23 +10,37 @@
     max-width: variable.$inner-max-witdh;
     padding: 10px;
 
-    background-color: map-get(variable.$color, black);
     color: map-get(variable.$color, lightWhite);
     font-weight: map-get(variable.$font-weight, regular);
+    background-color: map-get(variable.$color, black);
     font-size: 0.9em;
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0 auto;
 
+    // ul 공통 스타일
     ul {
       list-style: none;
       display: flex;
-      gap: 15px;
 
       li {
         cursor: pointer;
-        padding: 10px;
+      }
+    }
+
+    .mianMenuBox {
+      text-transform: uppercase;
+
+      li {
+        padding: 10px 20px;
+      }
+    }
+
+    .utilityMenuBox {
+      li {
+        padding: 5px 10px;
       }
 
       .login {
