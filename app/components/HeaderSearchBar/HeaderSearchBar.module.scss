@@ -1,0 +1,73 @@
+@use "../../variable";
+
+.headerSearchBar {
+  padding-top: variable.$header-height;
+  color: map-get(variable.$color, lightWhite);
+
+  .inner {
+    max-width: variable.$inner-max-witdh;
+    margin: 0 auto;
+    background-color: map-get(variable.$color, lightBlack);
+    padding: 10px;
+
+    .titleBox {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        font-size: 1.2em;
+        font-weight: map-get(variable.$font-weight, bold);
+        padding: 10px;
+      }
+
+      .bellIcon {
+        padding: 10px;
+        cursor: pointer;
+      }
+    }
+
+    .searchBox {
+      position: relative;
+      height: 36px;
+      padding: 0 10px;
+
+      .inputButton {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .searchIcon {
+        position: absolute;
+        right: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .searchTxt {
+        position: absolute;
+        top: 50%;
+        left: 18px;
+        transform: translateY(-50%);
+        color: map-get(variable.$color, lightGray);
+        font-size: 0.9em;
+      }
+    }
+  }
+}
+
+@media (max-width: nth(variable.$breakpoints,2)) {
+  .headerSearchBar {
+    padding-top: 0;
+
+    .bellIcon {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
