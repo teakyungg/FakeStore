@@ -1,5 +1,5 @@
 $breakpoints: 600px 1024px; // 모바일, 테블릿 브레이크 포인트
-$header-height: 63px;
+$header-height: 60px;
 $inner-max-witdh: 1500px;
 
 // 모바일, 테블릿, PC 기준
@@ -8,6 +8,7 @@ $font-size: 14px 15px 16px; // 폰트 사이즈
 // 색깔
 $color: (
   black: rgb(0, 0, 0),
+  lightBlack: rgb(26, 27, 31),
   white: rgb(255, 255, 255),
   lightWhite: rgb(235, 235, 235),
 );
