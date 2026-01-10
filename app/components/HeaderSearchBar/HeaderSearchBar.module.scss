@@ -1,14 +1,12 @@
 @use "../../variable";
+@use "../../mixin";
 
 .headerSearchBar {
   padding-top: variable.$header-height;
   color: map-get(variable.$color, lightWhite);
 
-  .inner {
-    max-width: variable.$inner-max-witdh;
-    margin: 0 auto;
+  @include mixin.inner {
     background-color: map-get(variable.$color, lightBlack);
-    padding: 10px;
 
     .titleBox {
       display: flex;
