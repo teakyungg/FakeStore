@@ -12,7 +12,7 @@
 
     color: map-get(variable.$color, lightWhite);
     font-weight: map-get(variable.$font-weight, regular);
-    background-color: map-get(variable.$color, black);
+    background-color: map-get(variable.$color, lightBlack);
     font-size: 0.9em;
 
     display: flex;
