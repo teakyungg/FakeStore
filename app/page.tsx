@@ -1,11 +1,5 @@
-import { CategoryNav } from "./components/CategoryNav/CategoryNav";
-import { HeaderSearchBar } from "./components/HeaderSearchBar/HeaderSearchBar";
+import { Home } from "./(page)/Home/Home";
 
-export default function Home() {
-  return (
-    <div style={{ height: "2000px" }}>
-      <HeaderSearchBar />
-      <CategoryNav />
-    </div>
-  );
+export default function Main() {
+  return <Home />;
 }
