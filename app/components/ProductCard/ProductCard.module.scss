@@ -1,0 +1,37 @@
+@use "../../variable";
+
+$border-radius: 8px;
+
+.productCard {
+  height: 100%;
+  font-size: 0.9em;
+
+  display: grid;
+  grid-template-rows: 7fr 3fr;
+  cursor: pointer;
+
+  .productImage {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: map-get(variable.$color, white);
+
+    border-radius: $border-radius $border-radius 0 0;
+  }
+
+  .productDirBox {
+    padding: 10px;
+    background-color: map-get(variable.$color, white);
+    border-radius: 0 0 $border-radius $border-radius;
+
+    .productBrand,
+    .productPrice {
+      font-weight: map-get(variable.$font-weight, bold);
+    }
+
+    .productTitle {
+      font-size: inherit;
+      font-weight: map-get(variable.$font-weight, regular);
+    }
+  }
+}
