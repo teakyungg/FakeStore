@@ -7,6 +7,8 @@
 
   @include mixin.inner {
     background-color: map-get(variable.$color, lightBlack);
+    display: grid;
+    gap: 10px;
 
     .titleBox {
       display: flex;
