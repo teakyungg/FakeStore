@@ -1,0 +1,39 @@
+@use "../../variable";
+@use "../../mixin";
+
+.categoryNav {
+  position: sticky;
+  top: 61px;
+  background-color: map-get(variable.$color, lightBlack);
+  color: map-get(variable.$color, lightWhite);
+  font-size: 0.9em;
+
+  .categoryMenu {
+    display: flex;
+
+    .item {
+      padding: 5px 10px;
+      position: relative;
+      cursor: pointer;
+
+      .itemLineOn {
+        position: absolute;
+        bottom: -9px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 55%;
+        height: 3px;
+        background-color: white;
+      }
+    }
+  }
+}
+
+@include mixin.inner;
+
+@media (max-width: map-get(variable.$breakpoints, tablet)) {
+  .categoryNav {
+    top: 0;
+  }
+}
