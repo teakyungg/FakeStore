@@ -59,7 +59,7 @@
   }
 }
 
-@media (max-width: nth(variable.$breakpoints,2)) {
+@media (max-width: map-get(variable.$breakpoints, tablet)) {
   .headerSearchBar {
     padding-top: 0;
 
