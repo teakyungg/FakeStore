@@ -10,21 +10,18 @@ a {
   color: inherit;
 }
 
-// 반응형 전역 설정
-@for $screen-size from 1 through 3 {
-  // 모바일
-  @if $screen-size == 1 {
-    body {
-      font-size: nth(variable.$font-size, $screen-size);
-    }
-  }
+/* 반응형 전역 설정 */
 
-  // 테블릿, PC
-  @else {
-    @media (min-width: nth(variable.$breakpoints, $screen-size - 1)) {
-      body {
-        font-size: nth(variable.$font-size, $screen-size);
-      }
+// 모바일
+body {
+  font-size: map-get(variable.$font-size, mobile);
+}
+
+// 테블릿, pc
+@for $i from 1 through length(variable.$breakpoints) {
+  @media (min-width: nth(map-values(variable.$breakpoints), $i)) {
+    body {
+      font-size: nth(map-values(variable.$font-size), $i + 1);
     }
   }
 }
