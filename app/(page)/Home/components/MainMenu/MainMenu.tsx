@@ -1,3 +1,5 @@
+"use client";
+
 import { ProductCard } from "@/app/components/ProductCard/ProductCard";
 import styles from "./MainMenu.module.scss";
 import { useEffect, useState } from "react";
