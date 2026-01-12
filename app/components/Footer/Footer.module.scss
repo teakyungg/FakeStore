@@ -11,6 +11,10 @@
     background-color: map-get(variable.$color, lightBlack);
     color: map-get(variable.$color, lightWhite);
 
+    & > * {
+      padding-left: 20px;
+    }
+
     .underscore {
       text-decoration: underline;
       cursor: pointer;
