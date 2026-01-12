@@ -17,17 +17,9 @@ $grid-template-columns: (
       padding-bottom: 10px;
     }
 
-    .loading {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
     .products {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 300px;
 
       gap: 10px;
     }

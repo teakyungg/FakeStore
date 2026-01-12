@@ -4,7 +4,7 @@ import { ProductCard } from "@/app/components/ProductCard/ProductCard";
 import styles from "./MainMenu.module.scss";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import ClipLoader from "react-spinners/ClipLoader";
+import { ProductLoadingCard } from "@/app/components/ProductLoadingCard/ProductLoadingCard";
 
 const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -19,6 +19,7 @@ interface productsType {
 
 export function MainMenu() {
   const [products, setProducts] = useState<productsType[]>();
+  const loadingCardLength = 20;
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -43,13 +44,14 @@ export function MainMenu() {
       <div className={styles.inner}>
         <p className={styles.title}>전체 아이템</p>
 
-        {products === undefined && (
-          <div className={styles.loading}>
-            <ClipLoader />
-          </div>
-        )}
-
         <ul className={styles.products}>
+          {!products &&
+            Array.from({ length: loadingCardLength }).map((_, index) => (
+              <li key={`loading-${index}`}>
+                <ProductLoadingCard />
+              </li>
+            ))}
+
           {products?.map((value) => (
             <li key={value.id}>
               <Link href={`/${value.id}`}>
