@@ -1,0 +1,39 @@
+@use "../../variable";
+@use "../../mixin";
+
+.footer {
+  @include mixin.inner {
+    display: grid;
+    gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+
+    background-color: map-get(variable.$color, lightBlack);
+    color: map-get(variable.$color, lightWhite);
+
+    .underscore {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .businessInfoBox {
+      display: flex;
+      flex-wrap: wrap;
+      font-style: normal;
+      font-size: 0.9em;
+
+      li::after {
+        content: "|";
+        padding: 0 5px;
+      }
+
+      li:last-child::after {
+        content: "";
+      }
+    }
+
+    .disclaimer {
+      color: map-get(variable.$color, lightGray);
+    }
+  }
+}
