@@ -17,6 +17,13 @@ $grid-template-columns: (
       padding-bottom: 10px;
     }
 
+    .loading {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .products {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
