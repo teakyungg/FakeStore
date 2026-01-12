@@ -3,12 +3,27 @@
 $border-radius: 8px;
 
 .productCard {
-  height: 100%;
+  height: variable.$productCard-height;
   font-size: 0.9em;
 
   display: grid;
   grid-template-rows: 7fr 3fr;
   cursor: pointer;
+  position: relative;
+
+  .loading {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 70%;
+    border-radius: $border-radius $border-radius 0 0;
+    background-color: map-get(variable.$color, white);
+    transition: opacity 0.5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .productImage {
     background-size: contain;
