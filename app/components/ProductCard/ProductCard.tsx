@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./ProductCard.module.scss";
 
 interface ProductCardType {
@@ -14,7 +13,7 @@ export function ProductCard({ imgurl, brand, title, price }: ProductCardType) {
       <div className={styles.productImage} style={{ backgroundImage: `url(${imgurl})` }}></div>
 
       <div className={styles.productDirBox}>
-        <div className={styles.productBrand}>{brand}</div>
+        {brand && <div className={styles.productBrand}>{brand}</div>}
         <h2 className={styles.productTitle}>{title}</h2>
         <div className={styles.productPrice}>{price}$</div>
       </div>
