@@ -6,6 +6,6 @@ type CategoryState = {
 };
 
 export const useCategoryStore = create<CategoryState>((set) => ({
-  nowCategory: "전체",
+  nowCategory: "추천",
   setNowCategory: (value) => set({ nowCategory: value }),
 }));
