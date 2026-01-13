@@ -6,7 +6,7 @@ import { useCategoryStore } from "@/app/useCategoryStore";
 
 export function CategoryNav() {
   const [itemLine, setItemLine] = useState(0);
-  const categoryMenu = ["전체", "추천", "랭킹", "세일"];
+  const categoryMenu = ["추천", "랭킹", "세일"];
   const setNowCategory = useCategoryStore((state) => state.setNowCategory);
 
   const setCategory = (value: string, index: number) => {
