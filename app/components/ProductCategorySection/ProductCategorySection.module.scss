@@ -1,0 +1,40 @@
+@use "../../variable";
+@use "../../mixin";
+
+// 상품 반응형 나열 갯수
+$grid-template-columns: (
+  tablet: 3,
+  pc: 5,
+);
+
+.main {
+  @include mixin.inner {
+    background-color: map-get(variable.$color, lightWhite);
+
+    .title {
+      font-size: 1.1em;
+      font-weight: map-get(variable.$font-weight, medium);
+      padding-bottom: 10px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 10px;
+    }
+  }
+}
+
+// 테블릿, pc
+@for $i from 1 through length(variable.$breakpoints) {
+  @media (min-width: nth(map-values(variable.$breakpoints), $i)) {
+    .main {
+      .inner {
+        .products {
+          grid-template-columns: repeat(nth(map-values($grid-template-columns), $i), 1fr);
+        }
+      }
+    }
+  }
+}
