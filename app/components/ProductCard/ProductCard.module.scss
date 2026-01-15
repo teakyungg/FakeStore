@@ -7,9 +7,12 @@ $border-radius: 8px;
   font-size: 0.9em;
 
   display: grid;
-  grid-template-rows: 7fr 3fr;
+  grid-template-rows: 6fr 4fr;
   cursor: pointer;
   position: relative;
+
+  width: 150px;
+  height: 200px;
 
   .loading {
     position: absolute;
@@ -48,5 +51,12 @@ $border-radius: 8px;
       font-size: inherit;
       font-weight: map-get(variable.$font-weight, regular);
     }
+  }
+}
+
+@media (min-width: map-get(variable.$breakpoints,tablet)) {
+  .productCard {
+    width: 250px;
+    height: 300px;
   }
 }

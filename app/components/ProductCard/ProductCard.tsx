@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import styles from "./ProductCard.module.scss";
 import imagesLoaded from "imagesloaded";
-import ClipLoader from "react-spinners/ClipLoader";
+import { useRouter } from "next/navigation";
 
 interface ProductCardType {
+  id: string;
   imgurl: string;
   brand: string;
   title: string;
   price: string;
 }
 
-export function ProductCard({ imgurl, brand, title, price }: ProductCardType) {
+export function ProductCard({ id, imgurl, brand, title, price }: ProductCardType) {
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     imagesLoaded(`.${styles.productImage}`, { background: true }, function () {
@@ -20,7 +22,7 @@ export function ProductCard({ imgurl, brand, title, price }: ProductCardType) {
   }, []);
 
   return (
-    <article className={styles.productCard}>
+    <article className={styles.productCard} onClick={() => router.push(`/${id}`)}>
       <div className={styles.loading} style={{ opacity: loading ? 1 : 0 }}></div>
       <div className={styles.productImage} style={{ backgroundImage: `url(${imgurl})` }}></div>
 
