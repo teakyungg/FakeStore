@@ -8,4 +8,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 150px;
+  height: 200px;
+}
+
+@media (min-width: map-get(variable.$breakpoints,tablet)) {
+  .productLoadingCard {
+    width: 250px;
+    height: 300px;
+  }
 }
