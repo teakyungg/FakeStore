@@ -3,8 +3,9 @@
 import { ProductCard } from "@/app/components/ProductCard/ProductCard";
 import styles from "./ProductCategorySection.module.scss";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { ProductLoadingCard } from "@/app/components/ProductLoadingCard/ProductLoadingCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -22,8 +23,8 @@ interface ProductCategorySectionType {
 }
 
 export function ProductCategorySection({ categroy }: ProductCategorySectionType) {
-  const [products, setProducts] = useState<productsType[]>();
-  const loadingCardLength = 20;
+  const [products, setProducts] = useState<productsType[]>([]);
+  const loadingCardLength = 10; // 로딩중 보일 컴포넌트 갯수
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -43,39 +44,48 @@ export function ProductCategorySection({ categroy }: ProductCategorySectionType)
     fetchProducts();
   }, []);
 
-  // 이거 각각 분야 달리해서 캐러셀 형태로 3개 정도 따로 만들어야겠는데
-  // 항목은 3개 정도
-
-  // 예시
-  // BEAUTY 항목 -> 30개 정도 보이는 캐러셀
-  // Fragrances 항목 -> 30개 정도 보이는 캐러셀
-  // Groceries 항목 -> 30개 정도 보이는 캐러셀
-  // 애초에 무신사에 전체 보는 페이지가 없네
-
-  // 이거 전체 아이템이 아니라 공용 컴포넌트로 바꿔야할꺼 같은데
-
   return (
     <main className={styles.main}>
       <div className={styles.inner}>
         <p className={styles.title}>{categroy}</p>
 
-        <ul className={styles.products}>
-          {!products &&
-            Array.from({ length: loadingCardLength }).map((_, index) => (
-              <li key={`loading-${index}`}>
-                <ProductLoadingCard />
-              </li>
+        {/* 로딩중 */}
+        {products.length === 0 && (
+          <div className={styles.products}>
+            {Array.from({ length: loadingCardLength }).map((_, index) => (
+              <ProductLoadingCard key={index} />
             ))}
+          </div>
+        )}
 
-          {products?.map((value) => (
-            <li key={value.id}>
-              <Link href={`/${value.id}`}>
-                <ProductCard title={value.title} brand={value.brand} price={value.price} imgurl={value.images[0]} />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {products.length > 0 && (
+          <Swiper slidesPerView="auto" spaceBetween={16} freeMode grabCursor style={{ zIndex: 0 }}>
+            {products.map((value) => (
+              <SwiperSlide key={value.id} style={{ width: "fit-content" }}>
+                <ProductCard
+                  id={value.id}
+                  title={value.title}
+                  brand={value.brand}
+                  price={value.price}
+                  imgurl={value.images[0]}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
       </div>
     </main>
   );
+}
+
+{
+  /* 
+ <div className={styles.products} >
+            {products.map((value) => (
+              <Link key={value.id} href={`/${value.id}`}>
+                <ProductCard title={value.title} brand={value.brand} price={value.price} imgurl={value.images[0]} />
+              </Link>
+            ))}
+          </div>
+*/
 }
