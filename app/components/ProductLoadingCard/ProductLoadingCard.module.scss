@@ -3,7 +3,6 @@
 .productLoadingCard {
   background-color: map-get(variable.$color, white);
   border-radius: 8px;
-  height: variable.$productCard-height;
 
   display: flex;
   justify-content: center;
