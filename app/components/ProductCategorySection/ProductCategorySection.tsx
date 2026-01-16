@@ -26,9 +26,6 @@ export function ProductCategorySection({ categroy, rowLength = 1 }: ProductCateg
   const [products, setProducts] = useState<productsType[]>([]);
   const loadingCardLength = 10; // 로딩중 보일 컴포넌트 갯수
 
-  // 그리고 서버 데이터 불러오는거 props로 받아야할듯 이거 컴포넌트 늘어날때 마다 계속 서버 호출되는거 늘어나는거 비효울적임
-  // 그리고 상품 카드 높이좀 조정해야 할듯 grid로하든 ,저기 변수 파일에 있는걸로 하든
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -62,7 +59,12 @@ export function ProductCategorySection({ categroy, rowLength = 1 }: ProductCateg
 
         {/* 상품 */}
         {products.length > 0 && (
-          <ScrollContainer className={styles.products} style={{ gridTemplateRows: `repeat(${rowLength}, auto)` }}>
+          <ScrollContainer
+            horizontal={true}
+            vertical={false}
+            className={styles.products}
+            style={{ gridTemplateRows: `repeat(${rowLength}, auto)` }}
+          >
             {products.map((value) => (
               <ProductCard
                 key={value.id}

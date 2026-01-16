@@ -16,16 +16,16 @@
 
       display: grid;
       grid-auto-flow: column;
-      grid-auto-columns: 150px;
+      grid-auto-columns: map-get(variable.$productCard-Size, mobile-width);
       gap: 16px;
 
       & > * {
-        height: variable.$productCard-height - 100;
+        height: map-get(variable.$productCard-Size, mobile-height);
       }
 
       -ms-overflow-style: none; /* IE, Edge */
       scrollbar-width: none; /* Firefox */
-      & ::-webkit-scrollbar {
+      &::-webkit-scrollbar {
         display: none;
       }
     }
@@ -36,10 +36,10 @@
   .productCategorySection {
     .inner {
       .products {
-        grid-auto-columns: 250px;
+        grid-auto-columns: map-get(variable.$productCard-Size, tablet-width);
 
         & > * {
-          height: variable.$productCard-height;
+          height: map-get(variable.$productCard-Size, tablet-height);
         }
       }
     }
