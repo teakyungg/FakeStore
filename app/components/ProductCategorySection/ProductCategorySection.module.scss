@@ -1,7 +1,7 @@
 @use "../../variable";
 @use "../../mixin";
 
-.main {
+.productCategorySection {
   @include mixin.inner {
     background-color: map-get(variable.$color, lightWhite);
 
@@ -12,12 +12,35 @@
     }
 
     .products {
-      display: flex;
+      overflow-x: auto;
+
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 150px;
       gap: 16px;
-      overflow-x: hidden;
 
       & > * {
-        flex: 0 0 auto;
+        height: variable.$productCard-height - 100;
+      }
+
+      -ms-overflow-style: none; /* IE, Edge */
+      scrollbar-width: none; /* Firefox */
+      & ::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: map-get(variable.$breakpoints, tablet)) {
+  .productCategorySection {
+    .inner {
+      .products {
+        grid-auto-columns: 250px;
+
+        & > * {
+          height: variable.$productCard-height;
+        }
       }
     }
   }
