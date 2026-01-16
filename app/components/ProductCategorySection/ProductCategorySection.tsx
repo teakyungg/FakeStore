@@ -3,6 +3,7 @@ import styles from "./ProductCategorySection.module.scss";
 import { ProductLoadingCard } from "@/app/components/ProductLoadingCard/ProductLoadingCard";
 import ScrollContainer from "react-indiana-drag-scroll";
 import { productsType } from "@/app/(page)/(Home)/page";
+import { memo } from "react";
 
 interface ProductCategorySectionType {
   products: productsType[];
@@ -10,7 +11,7 @@ interface ProductCategorySectionType {
   rowLength?: number; // 세로행 갯수
 }
 
-export function ProductCategorySection({ categroy, rowLength = 1, products }: ProductCategorySectionType) {
+function ProductCategorySection_({ categroy, rowLength = 1, products }: ProductCategorySectionType) {
   const loadingCardLength = 10; // 로딩중 보일 컴포넌트 갯수
 
   return (
@@ -50,3 +51,15 @@ export function ProductCategorySection({ categroy, rowLength = 1, products }: Pr
     </div>
   );
 }
+
+export const ProductCategorySection = memo(ProductCategorySection_);
+
+/* ex) 3개의 데이터를 서버에서 받아와서 ProductCategorySection 컴포넌트로 렌더링했을 때
+
+memo를 안했을경우
+현재 컴포넌트가 데이터에 최소 3번, 최대 4번 정도 리렌더링 되는 것을 확인
+
+memo를 했을경우
+현재 컴포넌트가 고정으로 2번만 렌더링되는 것을 확인
+
+*/
