@@ -3,7 +3,7 @@
 // inner 공용 스타일
 @mixin inner {
   .inner {
-    max-width: variable.$inner-max-witdh;
+    max-width: variable.$inner-max-width;
     margin: 0 auto;
     padding: 10px;
 
