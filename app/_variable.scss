@@ -4,9 +4,20 @@ $breakpoints: (
   tablet: 1024px,
 );
 
-$header-height: 60px; // 헤더 높이
+// 헤더 높이
+$header-height: 60px;
+
+// 공용 inner 최대 크기
 $inner-max-width: 1500px;
-$productCard-height: 300px; // 상품 카드 높이
+
+// 상품 카드 크기
+$productCard-Size: (
+  mobile-width: 150px,
+  mobile-height: 200px,
+
+  tablet-width: 250px,
+  tablet-height: 300px,
+);
 
 // 모바일, 테블릿, PC 기준
 $font-size: (
