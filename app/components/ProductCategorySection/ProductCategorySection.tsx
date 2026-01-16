@@ -5,19 +5,32 @@ import ScrollContainer from "react-indiana-drag-scroll";
 import { productsType } from "@/app/(page)/(Home)/page";
 import { memo } from "react";
 
+/* ex) 3개의 데이터를 서버에서 받아와서 ProductCategorySection 컴포넌트로 렌더링했을 때
+
+memo를 안했을경우
+현재 컴포넌트가 데이터에 최소 3번, 최대 4번 정도 리렌더링 되는 것을 확인
+
+memo를 했을경우
+현재 컴포넌트가 고정으로 2번만 렌더링되는 것을 확인
+
+*/
+
 interface ProductCategorySectionType {
   products: productsType[];
-  categroy: string;
-  rowLength?: number; // 세로행 갯수
+  title: string;
+
+  // 세로행 갯수
+  rowLength?: number;
 }
 
-function ProductCategorySection_({ categroy, rowLength = 1, products }: ProductCategorySectionType) {
-  const loadingCardLength = 10; // 로딩중 보일 컴포넌트 갯수
+function ProductCategorySection_({ title, rowLength = 1, products }: ProductCategorySectionType) {
+  // 로딩중 보일 컴포넌트 갯수
+  const loadingCardLength = 10;
 
   return (
     <div className={styles.productCategorySection}>
       <div className={styles.inner}>
-        <p className={styles.title}>{categroy}</p>
+        <p className={styles.title}>{title}</p>
         {/* 로딩중 */}
         {products.length === 0 && (
           <div className={styles.products} style={{ gridTemplateRows: `repeat(${rowLength}, auto)` }}>
@@ -53,13 +66,3 @@ function ProductCategorySection_({ categroy, rowLength = 1, products }: ProductC
 }
 
 export const ProductCategorySection = memo(ProductCategorySection_);
-
-/* ex) 3개의 데이터를 서버에서 받아와서 ProductCategorySection 컴포넌트로 렌더링했을 때
-
-memo를 안했을경우
-현재 컴포넌트가 데이터에 최소 3번, 최대 4번 정도 리렌더링 되는 것을 확인
-
-memo를 했을경우
-현재 컴포넌트가 고정으로 2번만 렌더링되는 것을 확인
-
-*/
