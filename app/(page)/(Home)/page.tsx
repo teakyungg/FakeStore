@@ -17,7 +17,7 @@ export interface productsType {
 }
 
 export default function Main() {
-  const categories = ["Beauty", "Fragrances", "Groceries"] as const;
+  const categories = ["Beauty", "Fragrances", "Groceries", "Home-Decoration", "Laptops"] as const;
 
   // "Beauty" | "Fragrances" | "Groceries"
   type Category = (typeof categories)[number];
@@ -66,6 +66,8 @@ export default function Main() {
         <ProductCategorySection title={"Beauty"} products={mainProductData.Beauty} />
         <ProductCategorySection title={"Fragrances"} products={mainProductData.Fragrances} />
         <ProductCategorySection title={"Groceries"} products={mainProductData.Groceries} rowLength={2} />
+        <ProductCategorySection title={"Home Decoration"} products={mainProductData[`Home-Decoration`]} />
+        <ProductCategorySection title={"Laptops"} products={mainProductData.Laptops} />
       </main>
     </>
   );
