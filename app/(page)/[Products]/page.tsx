@@ -1,3 +1,8 @@
 export default function ProductItem() {
-  return <div>임시 상품 상세 설명 페이지 입니다.</div>;
+  /* 
+    1. 물건 제목
+    2. 물건 가격
+    
+  */
+  return <div>물건 상세 페이지 제작하기</div>;
 }
