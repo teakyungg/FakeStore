@@ -1,10 +1,35 @@
+"use client";
+
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+
+const API_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 export default function ProductItem() {
-  /* 
-    1. 헤더
-    2. 물건 제목
-    3. 물건 가격
-    
-  */
+  const id = useParams().Products;
+
+  // 상품 데이터
+  const [product, setProduct] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`${API_URL}/products/${id}`);
+
+        if (!res.ok) {
+          throw new Error("상품 리스트 불러오기 실패");
+        }
+
+        const data = await res.json();
+        setProduct(data);
+      } catch {
+        alert("잠시 후 다시 시도해 주세요.");
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div>
       {/* inner */}
