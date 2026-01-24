@@ -4,6 +4,7 @@
 .productCategorySection {
   @include mixin.inner {
     background-color: map-get(variable.$color, lightWhite);
+    padding: 15px;
 
     .title {
       font-size: 1.1em;
