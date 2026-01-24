@@ -1,0 +1,10 @@
+@use "../../variable";
+@use "../../mixin";
+
+.productItem {
+  @include mixin.inner {
+    background-color: lightgreen;
+    height: 1000px;
+    padding-top: variable.$header-height;
+  }
+}
