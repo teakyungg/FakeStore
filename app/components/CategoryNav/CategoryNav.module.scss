@@ -8,6 +8,7 @@
   color: map-get(variable.$color, lightWhite);
   font-size: 0.9em;
   z-index: 1;
+  padding: 10px;
 
   .categoryMenu {
     display: flex;
