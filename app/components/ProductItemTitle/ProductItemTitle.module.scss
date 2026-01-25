@@ -1,8 +1,9 @@
 @use "../../variable";
 
 .productItemTitle {
-  display: grid;
-  gap: 5 px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 
   .title {
     font-size: 1em;
