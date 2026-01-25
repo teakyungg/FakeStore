@@ -1,0 +1,15 @@
+@use "../../variable";
+
+.productItemTitle {
+  display: grid;
+  gap: 5 px;
+
+  .title {
+    font-size: 1em;
+    font-weight: map-get(variable.$font-weight, bold);
+  }
+
+  .brand {
+    font-size: 0.8em;
+  }
+}
