@@ -1,0 +1,24 @@
+@use "../../variable";
+
+.productPrice {
+  .price {
+    color: map-get(variable.$color, lightGray);
+    font-size: 0.9em;
+  }
+
+  .priceBox {
+    display: flex;
+    gap: 10px;
+
+    .discount {
+      color: map-get(variable.$color, lightRed);
+      font-size: 1.2em;
+      font-weight: map-get(variable.$font-weight, medium);
+    }
+
+    .finalPrice {
+      font-size: 1.2em;
+      font-weight: map-get(variable.$font-weight, medium);
+    }
+  }
+}
