@@ -9,12 +9,13 @@ interface ProductPriceType {
 }
 
 export function ProductPrice({ price = 0, discount = 0 }: ProductPriceType) {
+  // 할인률이 적용된 최종 가격
   const finalPrice = Number((price * (1 - discount / 100)).toFixed(2));
 
   return (
     <div className={styles.productPrice}>
       {/* 원래 가격 */}
-      {price > 0 && <s className={styles.price}>{price}$</s>}
+      {discount > 0 && <s className={styles.price}>{price}$</s>}
 
       <div className={styles.priceBox}>
         {/* 할인률 */}
